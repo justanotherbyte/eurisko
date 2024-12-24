@@ -39,3 +39,9 @@ def counting_sort(arr: list[int]):
 arr = [5, 7, 1, 4, 0, -1, 23, 23]
 arr = counting_sort(arr)
 print(arr)
+
+
+# inefficient counting sort (9)
+arr = [5, 7, 1, 4, 0, -1, 23, 23, 100000000000000000]
+arr = counting_sort(arr)  # raises a MemoryError. Problem solved :)
+print(arr)
