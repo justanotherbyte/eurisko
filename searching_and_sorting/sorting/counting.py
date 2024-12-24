@@ -21,8 +21,6 @@ def counting_sort(arr: list[int]):
     for idx, num in enumerate(arr):
         arr[idx] = num - m
 
-
-
     N = calc_max(arr)
     counts = [0] * (N + 1)
     for n in arr:
