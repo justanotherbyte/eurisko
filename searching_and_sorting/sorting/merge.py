@@ -4,35 +4,31 @@ def _split_array(arr: list[int]) -> tuple[list[int], list[int]]:
     return (arr[:mid], arr[mid:])
 
 
-def insertion_sort(arr: list[int]):
-    length = len(arr)
-    while True:
-        swap_made = False
-        for idx in range(length - 1):
-            n1 = arr[idx]
-            n2 = arr[idx + 1]
-            if n1 > n2:
-                # swap
-                arr[idx] = n2
-                arr[idx + 1] = n1
+def calc_min(arr: list[int]) -> int:
+    minimum = arr[0]
+    for n in arr:
+        if n < minimum:
+            minimum = n
 
-                note = idx + 1
-                swap_made = True
+    return minimum
 
-                for jdx in range(note, 0, -1):
-                    j1 = arr[jdx]
-                    j2 = arr[jdx - 1]
-                    if j2 > j1:
-                        # swap
-                        arr[jdx - 1] = j1
-                        arr[jdx] = j2
-        if not swap_made:
-            break
+
+def selection_sort(arr: list[int]) -> list[int]:
+    copy = arr.copy()
+    sorted_arr = []
+
+    while len(copy) > 0:
+        m = calc_min(copy)
+        sorted_arr.append(m)
+        copy.remove(m)
+
+    return sorted_arr
 
 
 def merge(arr1: list[int], arr2: list[int]) -> list[int]:
     combined = arr1 + arr2
-    insertion_sort(combined)
+    selection_sort(combined)
+
     return combined
 
 
@@ -41,7 +37,6 @@ def merge_sort(arr: list[int]):
         return arr
 
     h1, h2 = _split_array(arr)
-    print(h1, h2)
     return merge(merge_sort(h1), merge_sort(h2))
 
 
