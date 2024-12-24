@@ -34,7 +34,7 @@ def quicksort(arr: list[int]) -> list[int]:
     if len(arr) <= 1:
         return arr
 
-    pivot_idx = random.choice(range(len(arr)))
+    pivot_idx = random.randint(0, len(arr) - 1)
     pivot = arr[pivot_idx]
     pieces = [
         [n for n in arr if n < pivot],
