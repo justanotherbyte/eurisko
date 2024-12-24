@@ -21,5 +21,7 @@ def bisection_search(
 
 
 f = lambda x: (x**3) - 2
+f2 = lambda x: (2 * x) + 1
 
 print(bisection_search(f, 3, 1))
+print(bisection_search(f2, 10, -10))
