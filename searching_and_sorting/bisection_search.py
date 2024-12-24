@@ -25,3 +25,11 @@ f2 = lambda x: (2 * x) + 1
 
 print(bisection_search(f, 3, 1))
 print(bisection_search(f2, 10, -10))
+
+
+def calc_root_bisection(a: Number, n: Number):
+    f = lambda x: (x**n) - a
+    return bisection_search(f, 10000, -10000)
+
+
+print(calc_root_bisection(2, 3))
